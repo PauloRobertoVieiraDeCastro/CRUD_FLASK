@@ -1,0 +1,230 @@
+/*resetando as tags, antes de iniciar*/
+body,a, h1,h2,h3,h4,p,ul,li{
+	margin: 0px;
+	padding: 0px;
+  justify-content: center;
+}
+
+h1{
+  font-size: 1.65rem;
+  font-weight: bold;
+}
+
+h2{
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+h4{
+  font-size: 1.2rem;
+}
+
+h5{
+  font-size: 1.1rem;
+}
+
+body{
+	font-family: Helvetica, Arial, sans-serif;/*cursive, "Lucida Console", monospace;/*"Nunito",/*familia da fonte*/
+	color: #222222; /*cor preta nao tao intensa da fonte*/
+	padding-top: -10px;
+
+}
+
+ul{
+	list-style: none; /*retira os pontos antes de cada termo*/
+}
+
+a{
+	text-decoration: none; /*retira o sublinhado do link*/
+}
+
+img{
+	max-width: 100%;/*não estoura o limite da tela, mas nao perde resolução*/
+	display: block; /*as imagens nunca alinham, sempre ficam como bloco (em cima da outra tag)*/
+	
+}
+
+*{
+	box-sizing: border-box; /*com essa propriedade, a largura era sempre o somatório do width com o padding.
+	/*com o border-box a largura é sempre o width apenas*/
+}
+
+li{
+	color: white;
+}
+
+.navbar-toggler {
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+  	border-style: solid 2px;
+    border: 1.5px solid white;
+    border-radius: .25rem;
+}
+/*classes menos genericas - cabeçalho de cima e de baixo*/
+.superinfo-bg{
+	background-color: white;
+	color: green;
+  height: 60px;
+}
+
+.superinfo{
+	margin: 0 auto;/*centraliza o container na tela, limitada no superinfo-bg*/
+	display: flex; /*alinha os itens*/
+	justify-content: space-between; /*espaça igualmente os elementos filhos dessa classe*/
+	flex-wrap: wrap; /*se não couber, os elementos passam para a próxima linha*/
+	padding-top: 10px;
+
+}
+
+.superinfo p{
+	margin: 0 10px 20px 10px;
+}
+
+.superinfo a{
+	color: green; /*estilizo a tag a, filha em algum grau da classe superinfo*/
+	margin: 0 10px 10px 10px;
+}
+
+.menu-bg{
+	background-color: white;
+}
+
+.super{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width:100%;
+	z-index: 80;
+}
+
+.menu{
+	display: flex; /*o menu é um container, q torna as divs filhas como flex-items.*/
+	flex-wrap: wrap;
+	max-width: 960px; /*ou seja, a div e a nav são flex-items agora*/
+	margin: 0 auto;
+	padding: 15px 0;
+	justify-content: space-between; /*com isso, cada um fica em uma ponta*/
+	align-items: center;
+}
+
+.estilo_nav{
+	background-color: #0096FF;
+	margin-top: 0px;
+}
+
+.itens_nav{
+	color: white;
+	letter-spacing: 0.09em;
+	line-height: 20px;
+	font-weight: bold;
+}
+
+.nav-item:hover{
+	font-weight: bolder;
+}
+
+@media only screen and (min-width: 1278px) and (max-width: 1500px){
+  .tamanho_e{
+    max-width: 300px;
+    font-size: 16px;
+    color: ;
+  }
+  .espaco_entry{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .tamanho_f{
+    max-width: 300px;
+    font-size: 16px;
+    color: green;
+  }
+  .espaco_prod{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 1277px){
+  .espaco_entry{
+    margin-top: 5px;
+    margin-bottom: 50px;
+  }
+
+  .espaco_prod{
+    margin-top: 5px;
+    margin-bottom: 50px;
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+
+.tt{
+	margin-right: 7%;
+	margin-left: 7%;
+}
+
+.dens{
+  color: white;
+  background-color: green;
+}
+
+input[type=number]{
+  color: green;
+  border-color: green;
+}
+
+input[type=number]:focus {
+  border: 2px solid green;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: green;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: green;
+}
+
+@media only screen and (min-width: 508px) and (max-width: 807px){
+  thead{
+    font-size: 13px;
+  }
+
+  tbody{
+    font-size: 12px;
+  }
+}
+
+
+@media only screen and (min-width: 300px) and (max-width: 507px){
+  thead{
+    font-size: 9px;
+  }
+
+  tbody{
+    font-size: 8px;
+  }
+}
+
+.table {
+   margin:0 auto;
+   width: 60%;
+}
+
+td {
+    text-align: center;
+}
+
+.container {
+    border-radius: 4px;
+    margin: auto;
+    width: 80%;
+}
