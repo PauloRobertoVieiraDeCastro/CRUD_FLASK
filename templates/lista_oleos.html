@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Óleos ANP</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+SC' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="../static/densidade.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='oleos.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <!--<script type="text/javascript" src="../static/densi.js"></script>-->
+        <div class="super">
+            <nav class="navbar navbar-expand-md fixed-top py-3 box-shadow estilo_nav text-center"> <!--expande apos 760 px-->
+                <div class="superinfo col text-center justify-content-center" style="color: white">
+                    <h1>Lista de óleos ANP</h1>
+                </div>
+            </nav>
+        </div>
+
+        <section class="my-3 jumbotron justify-content-center container" style="background: white; color: #0096FF">
+            <div class="justify-content-center" style="margin-top:20px">   
+                <div class="form-row text-center justify-content-center">
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <label for="pokemongo">Insira o nome da corrente</label>
+                    </div>
+                    <div class="form-group col-lg-4 col-md-12 col-sm-12 mod">
+                        
+                        <input style="border: solid 2px" id="myInput" onkeyup="meuPedido()"
+                        class="form-control form-control-lg" name="oleocorrente" aria-label="Search"
+                        data-target="#myModal" data-toggle="modal">
+                    </div>
+                </div> 
+                <table class="table table-striped table-bordered text-center justify-content-center my-2" id="tbPedidos" class="table">
+                    <thead>
+                        <tr>
+                            <th>Corrente</th>
+                            <th>°API</th>
+                            <th>Nafta</th>
+                            <th>Diesel</th>
+                            <th>Gasóleo</th>
+                            <th>Enxofre</th>
+                            <th>Nitrogênio</th>
+                            <th>TAN</th>
+                            <th>Edição</th>
+                            <th>Remoção</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tabela">
+                        {% for oleo in oleos %}
+                            <tr id="a{{oleo.corrente | lower }}">
+                                <td class="{{oleo.corrente}}" id="{{oleo.corrente | lower }}">{{ oleo.corrente }}</td>
+                                <td>{{ oleo.api }}</td>
+                                <td>{{ oleo.nafta }}</td>
+                                <td>{{ oleo.diesel }}</td>
+                                <td>{{ oleo.gasoleo }}</td>
+                                <td>{{ oleo.s }}</td>
+                                <td>{{ oleo.n }}</td>
+                                <td>{{ oleo.tan }}</td>
+                                <td><a href="{{ url_for('editar',ide=oleo.ide) }}">Editar</a></td>
+                                <td><a href="{{ url_for('deletar',ide=oleo.ide) }}">Remover</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="container justify-content-center text-center">
+                <a class="my-3 tt btn btn-primary btn-lg justify-content-center text-center"" href="{{url_for('novo')}}" style="font-size: 20px; min-width: 180px; background-color: #0096FF;">Adicionar óleo</a>
+            </div>
+
+        </section>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='oleos.js') }}"></script>
+    </body>
+</html>
