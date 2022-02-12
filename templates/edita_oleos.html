@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Óleos ANP</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+SC' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="../static/densidade.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='oleos.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <!--<script type="text/javascript" src="../static/densi.js"></script>-->
+        <div class="super">
+            <nav class="navbar navbar-expand-md fixed-top py-3 box-shadow estilo_nav text-center"> <!--expande apos 760 px-->
+                <div class="superinfo col text-center justify-content-center" style="color: white">
+                    <h1>Edição de óleos ANP</h1>
+                </div>
+            </nav>
+        </div>
+
+        <section class="my-3 jumbotron justify-content-center" style="background: white; color: #0096FF">
+            <div class="table-responsive justify-content-center" style="margin-top:20px">    
+                <form action="{{ url_for('atualizar') }}" method="post">
+                    <fieldset>
+                      <input type="hidden" name="ide" value="{{oleo.ide}}">
+                      <div class="form-group">
+                        <label for="corrente">Corrente</label>
+                        <input type="text" id="corrente" name="corrente" class="form-control", value="{{oleo.corrente}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="api">°API</label>
+                        <input type="text" id="api" name="api" class="form-control", value="{{oleo.api}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="nafta">Nafta</label>
+                        <input type="text" id="nafta" name="nafta" class="form-control", value="{{oleo.nafta}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="diesel">Diesel</label>
+                        <input type="text" id="diesel" name="diesel" class="form-control", value="{{oleo.diesel}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="gasoleo">Gasóleo</label>
+                        <input type="text" id="gasoleo" name="gasoleo" class="form-control", value="{{oleo.gasoleo}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="enxofre">Percentual de enxofre</label>
+                        <input type="text" id="enxofre" name="enxofre" class="form-control", value="{{oleo.s}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="enxofre">Percentual de nitrogênio</label>
+                        <input type="text" id="nitrogenio" name="nitrogenio" class="form-control", value="{{oleo.n}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="enxofre">Número total de acidez</label>
+                        <input type="text" id="tan" name="tan" class="form-control", value="{{oleo.tan}}">
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                      <a class="btn btn-danger btn-voltar" href="{{url_for('index')}}">Voltar</a>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
