@@ -6,11 +6,11 @@ from modelo import*
 
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = "localhost"
-app.config['MYSQL_USER'] = "root"
-app.config['MYSQL_PASSWORD'] = "cimento1"
+app.config['MYSQL_USER'] = "seu_usuario"
+app.config['MYSQL_PASSWORD'] = "suasenha"
 app.config['MYSQL_DB'] = "oleoteca"
 app.config['MYSQL_PORT'] = 3306
-app.secret_key = 'cimento1'
+app.secret_key = 'suachave' #ela é essencial para deletar dados do banco
 db = MySQL(app)
 oleo_dao = DAO(db)
 
