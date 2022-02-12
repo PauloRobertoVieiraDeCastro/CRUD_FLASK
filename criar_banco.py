@@ -1,9 +1,9 @@
 import MySQLdb
 print('Conectando...')
-conn = MySQLdb.connect(user='root', passwd='cimento1', host='localhost', port=3306)
+conn = MySQLdb.connect(user='seu_usuario', passwd='suasenha', host='localhost', port=3306)
 
-conn.cursor().execute("DROP DATABASE `oleoteca`;")
-conn.commit()
+conn.cursor().execute("DROP DATABASE `oleoteca`;") #so execute se vc já tiver o banco com esse nome, do contrário, retire essa linha
+conn.commit()#idem
 
 criar_tabelas = '''SET NAMES utf8;
     CREATE DATABASE `oleoteca` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
@@ -31,6 +31,6 @@ cursor.executemany(
 print(' -------------  Oleos:  -------------')
 cursor.execute('select * from oleoteca.oleo')
 for jogo in cursor.fetchall():
-    print(jogo)
+    print(jogo) #vendo a cara do banco
 conn.commit()
 cursor.close()
